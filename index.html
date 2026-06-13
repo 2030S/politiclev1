@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base target="_top">
+<title>Political Ranking Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="script.js">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<section id="container">
+  <h1>Political Ranking Dashboard</h1>
+  <p>Real-time ranking and analysis system</p>
+</section>
+
+<main>
+
+<section id="input-section">
+
+  <h2>Add New Vote</h2>
+
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="email" id="email" placeholder="Your Email">
+
+  <select id="party">
+    <option value="RNI">RNI</option>
+    <option value="PAM">PAM</option>
+    <option value="PJD">PJD</option>
+    <option value="Istiqlal">Istiqlal</option>
+  </select>
+
+  <select id="region">
+    <option value="Tangier">Tangier</option>
+    <option value="Casablanca">Casablanca</option>
+    <option value="Rabat">Rabat</option>
+  </select>
+
+  <input type="number" id="score" min="1" max="10" placeholder="Score">
+
+  <button type="button" onclick="sendData()">Submit</button>
+
+</section>
+
+<section id="chart-section">
+  <h2>Political Chart</h2>
+  <canvas id="partyChart"></canvas>
+</section>
+
+</main>
+
+<section id="ranking-section">
+  <h2>Political Ranking</h2>
+  <div id="ranking-results"></div>
+</section>
+
+<section id="data-section">
+  <h2>Latest Participants</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Party</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</section>
+
+<script>
+
+
+
+</script>
+
+</body>
+</html>
