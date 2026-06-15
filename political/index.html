@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base target="_top">
+<title>Political Ranking Dashboard</title>
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/varianles.css">
+<link rel="stylesheet" href="css/know.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<section id="container">
+  <div>
+      <h1 id="h1container">تقييمات الأحزاب</h1>
+      <p id="p1container">هذه الصفحة تتابع تقييمات الأحزاب السياسية المغربية.
+     إعطي تقييم لحزبك المفضل</p>
+  </div>
+</section>
+
+<main>
+
+<section id="input-section">
+
+  <h2>Add New Vot</h2>
+
+  <input type="text" id="name" placeholder="الاسم الكامل">
+  <input type="email" id="email" placeholder="لإميل الخاص بك">
+
+  <select id="party">
+    <option value="حزب الاستقلال"> حزب لإستفلال</option>
+    <option value="التجمع الوطني للأحرار">التجمع الوطني للأحرار</option>
+    <option value="حزب الأصالة والمعاصرة">حزب الأصالة والمعاصرة</option>
+    <option value="حزب العدالة والتنمية">حزب العدالة والتنمية</option>
+    <option value="لاتحاد الاشتراكي للقوات الشعبية">لاتحاد الاشتراكي للقوات الشعبية</option>
+    <option value="الحركة الشعبية">الحركة الشعبية</option>
+    <option value="حزب التقدم والاشتراكية">حزب التقدم والاشتراكية</option>
+    <option value="الاتحاد الدستوري">الاتحاد الدستوري</option>
+    <option value="جبهة القوى الديمقراطية">جبهة القوى الديمقراطية</option>
+    <option value="الحركة الديمقراطية الاجتماعية">الحركة الديمقراطية الاجتماعية</option>
+  </select>
+
+  <select id="region">
+    <option >جهة طنجة تطوان الحسيمة</option>
+    <option >جهة الشرق</option>
+    <option >جهة فاس مكناس</option>
+    <option >جهة الرباط سلا القنيطرة</option>
+    <option >جهة بني ملال خنيفرة</option>
+    <option >جهة الدار البيضاء سطاتر</option>
+    <option >جهة مراكش آسفي</option>
+    <option >جهة درعة تافيلالت</option>
+    <option >جهة سوس ماسة</option>
+    <option >جهة كلميم واد نون</option>
+    <option >جهة العيون الساقية الحمراء</option>
+    <option >جهة الداخلة وادي الذهب</option>
+  </select>
+
+  <input type="number" id="score" min="1" max="10" placeholder="ادخل تقييمك">
+
+  <button type="button" onclick="sendData()">إرسال</button>
+
+</section>
+
+
+<section id="chart-section">
+  <h2>Political Chart</h2>
+  <canvas id="partyChart"></canvas>
+</section>
+
+</main>
+
+<section id="ranking-section">
+  <h2>Political Ranking</h2>
+  <div id="ranking-results"></div>
+</section>
+
+<section id="data-section">
+  <h2>آخر المشاركين في الاستطلاع</h2>
+
+  <div class="participants-header">
+    <div>لإسم</div>
+    <div>الحزب</div>
+    <div>التقييم</div>
+  </div>
+
+  <div id="participants-list"></div>
+</section>
+
+
+
+<footer id="footer">
+
+  <h3>Political Ranking Dashboard V1</h3>
+
+  <p>Rida Teque 2026</p>
+
+</footer>
+
+<script src="js/Fingerprint.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ranking.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/participants.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+h1,h2{
+  margin-bottom:15px;
+}
+
+#PI{
+  width: 30px;
+  height: 30PX;
+}
+
+
+
+th{
+  background:#2563eb;
+  color:white;
+  padding:12px;
+}
+
+td{
+  padding:10px;
+  border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+  background:#f5f5f5;
+}
+
