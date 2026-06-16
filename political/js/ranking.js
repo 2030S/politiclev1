@@ -5,29 +5,50 @@ function calculateRanking(data){
   data.forEach(row => {
 
     const party = row.Party;
+    const score = Number(row.Score);
 
-    if(!party) return;
+    if(!party || !score) return;
 
     if(!parties[party]){
-      parties[party] = 0;
+      parties[party] = [];
     }
 
-    parties[party]++;
+    parties[party].push(score);
+
   });
 
   const ranking = [];
 
   for(const party in parties){
 
+    const scores = parties[party];
+
+    const votes = scores.length;
+
+    const total = scores.reduce(
+      (a,b) => a + b,
+      0
+    );
+
+    const average = total / votes;
+
+    const finalScore =
+      average * Math.log(votes + 1);
+
     ranking.push({
-      party: party,
-      votes: parties[party]
+
+      party,
+      votes,
+      average,
+      finalScore
+
     });
 
   }
 
   ranking.sort(
-    (a,b) => b.votes - a.votes
+    (a,b) =>
+      b.finalScore - a.finalScore
   );
 
   return ranking;
@@ -35,13 +56,19 @@ function calculateRanking(data){
 
 function showRanking(ranking){
 
-  const logoMap = {
-    "حزب الاستقلال":"assets/logo/حزب الاستقلال.png",
-    "التجمع الوطني للأحرار":"assets/logo/التجمع الوطني للأحرار.png",
-    "حزب الأصالة والمعاصرة":"assets/logo/حزب الأصالة والمعاصرة.png",
-    "حزب العدالة والتنمية":"assets/logo/حزب العدالة والتنمية.png",
-    "الاتحاد الدستوري":"assets/logo/الاتحاد الدستوري.png"
-  };
+
+const logoMap = {
+  "جبهة القوى الديمقراطية":"assets/logo/ffd.jfif",
+  "الحركة الديمقراطية الاجتماعية":"assets/logo/mdp.jfif",
+  "الحركة الشعبية":"assets/logo/mp.png",
+  "التجمع الوطني للأحرار":"assets/logo/rni.png",
+  "حزب الأصالة والمعاصرة":"assets/logo/pam.png",
+  "حزب العدالة والتنمية":"assets/logo/pjd.jfif",
+  "حزب التقدم والاشتراكية":"assets/logo/pps.png",
+  "الاتحاد الدستوري":"assets/logo/uc.png",
+  "حزب الاستقلال":"assets/logo/pi.jfif",
+  "حزب العدالة والتنمية":"assets/logo/pjd.jfif"
+};
 
   let html = "";
 
@@ -53,6 +80,7 @@ function showRanking(ranking){
   const maxVotes = ranking[0].votes;
 
   ranking.forEach(item => {
+    console.log(item.party);
 
     const percent =
       Math.round(
