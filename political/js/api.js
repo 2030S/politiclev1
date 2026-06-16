@@ -27,6 +27,14 @@ async function loadData() {
 
 async function sendData() {
 
+  const score =
+  Number(document.getElementById("score").value);
+
+if(score < 1 || score > 10){
+  alert("التقييم يجب أن يكون بين 1 و 10");
+  return;
+}
+
   const payload = {
     Fingerprint: generateFingerprint(),
     Name: document.getElementById("name").value,
@@ -55,5 +63,6 @@ if(result.success){
   await loadData();
 
 }
+
 }
 
