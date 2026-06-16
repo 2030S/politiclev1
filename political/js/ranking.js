@@ -32,43 +32,35 @@ function calculateRanking(data){
 
     const average = total / votes;
 
-    const finalScore =
-      average * Math.log(votes + 1);
-
     ranking.push({
-
       party,
       votes,
-      average,
-      finalScore
-
+      average
     });
 
   }
 
+  // الترتيب حسب عدد الأصوات
   ranking.sort(
-    (a,b) =>
-      b.finalScore - a.finalScore
+    (a,b) => b.votes - a.votes
   );
 
   return ranking;
-}
+} 
 
 function showRanking(ranking){
 
-
-const logoMap = {
-  "جبهة القوى الديمقراطية":"assets/logo/ffd.jfif",
-  "الحركة الديمقراطية الاجتماعية":"assets/logo/mdp.jfif",
-  "الحركة الشعبية":"assets/logo/mp.png",
-  "التجمع الوطني للأحرار":"assets/logo/rni.png",
-  "حزب الأصالة والمعاصرة":"assets/logo/pam.png",
-  "حزب العدالة والتنمية":"assets/logo/pjd.jfif",
-  "حزب التقدم والاشتراكية":"assets/logo/pps.png",
-  "الاتحاد الدستوري":"assets/logo/uc.png",
-  "حزب الاستقلال":"assets/logo/pi.jfif",
-  "حزب العدالة والتنمية":"assets/logo/pjd.jfif"
-};
+  const logoMap = {
+    "جبهة القوى الديمقراطية":"assets/logo/ffd.jfif",
+    "الحركة الديمقراطية الاجتماعية":"assets/logo/mdp.jfif",
+    "الحركة الشعبية":"assets/logo/mp.png",
+    "التجمع الوطني للأحرار":"assets/logo/rni.png",
+    "حزب الأصالة والمعاصرة":"assets/logo/pam.png",
+    "حزب العدالة والتنمية":"assets/logo/pjd.jfif",
+    "حزب التقدم والاشتراكية":"assets/logo/pps.png",
+    "الاتحاد الدستوري":"assets/logo/uc.png",
+    "حزب الاستقلال":"assets/logo/pi.jfif"
+  };
 
   let html = "";
 
@@ -77,15 +69,20 @@ const logoMap = {
     return;
   }
 
+  // أكبر عدد أصوات
   const maxVotes = ranking[0].votes;
 
   ranking.forEach(item => {
-    console.log(item.party);
 
-    const percent =
-      Math.round(
-        (item.votes / maxVotes) * 100
-      );
+    // طول البار حسب عدد الأصوات
+    const barPercent = Math.round(
+      (item.votes / maxVotes) * 100
+    );
+
+    // نسبة الرضا حسب متوسط التقييم
+    const ratingPercent = Math.round(
+      item.average * 10
+    );
 
     html += `
       <div class="party-row">
@@ -99,7 +96,7 @@ const logoMap = {
         <div class="bar-wrapper">
           <div
             class="bar-fill"
-            style="width:${percent}%">
+            style="width:${barPercent}%">
           </div>
         </div>
 
@@ -108,17 +105,12 @@ const logoMap = {
         </span>
 
         <span class="party-percent">
-          ${percent}%
+          ${ratingPercent}%
         </span>
 
       </div>
-
-
     `;
-
-    
   });
 
   document.getElementById("ranking-results").innerHTML = html;
 }
-

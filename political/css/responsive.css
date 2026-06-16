@@ -156,18 +156,27 @@
   color: #010810;
   text-align: center;
 }    
-.party-bar{
-  flex: 1;
-  margin: 0 12px;
-} 
+.progress-bar{
+  width: 180px;
+  height: 18px;
+}  
 
-.participant-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+#ranking-info{
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 15px;
+}
 
-  padding:10px;
-  margin-bottom:8px;
+.h2ranking{
+  text-align: right;
+  margin-right: 8px;
+}
 
-  border-radius:10px;
+.h2input{
+  text-align: right;
+  margin-right: 8px;
 }
