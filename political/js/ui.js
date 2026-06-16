@@ -7,18 +7,18 @@ function showData(data){
   latest.forEach(row => {
 
     html += `
-      <div class="participant-row">
+      <div class="participant-card">
 
-        <div class="participant-cell">
-          ${row.Name || ""}
+        <div class="participant-name">
+          👤 ${row.Name || "مشارك مجهول"}
         </div>
 
-        <div class="participant-cell">
-          ${row.Party || ""}
+        <div class="participant-party">
+          🏛️ ${row.Party || ""}
         </div>
 
-        <div class="participant-cell">
-          ${row.Score || ""}/10
+        <div class="participant-score">
+          ⭐ ${row.Score || "0"}/10
         </div>
 
       </div>
