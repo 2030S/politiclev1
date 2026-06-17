@@ -7,14 +7,20 @@
 <base target="_top">
 <title>Political Ranking Dashboard</title>
 
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/varianles.css">
-<link rel="stylesheet" href="css/know.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
 
+<link rel="stylesheet" href="css/component/container.css">
+<link rel="stylesheet" href="css/component/form.css">
+<link rel="stylesheet" href="css/component/ranking.css">
+<link rel="stylesheet" href="css/component/chart.css">
+<link rel="stylesheet" href="css/component/participants.css">
+<link rel="stylesheet" href="css/component/footer.css">
+
+<link rel="stylesheet" href="css/responsive/mobile.css">
+<link rel="stylesheet" href="css/responsive/tablet.css">
+<link rel="stylesheet" href="css/responsive/desktop.css">
 </head>
 
 <body>
@@ -32,8 +38,8 @@
 
   <h2 class="h2input">أضف تقييمك</h2>
 
-  <input type="text" id="name" placeholder="الاسم الكامل">
-  <input type="email" id="email" placeholder="لإميل الخاص بك">
+  <input type="text" id="name" placeholder="الاسم الكامل" required>
+  <input type="email" id="email" placeholder="لإميل الخاص بك" required>
 
   <select id="party">
     <option value="حزب الاستقلال"> حزب لإستفلال</option>
@@ -68,7 +74,7 @@
   id="score"
   min="1"
   max="10"
-  placeholder="أدخل تقييمك من 1 إلى 10">
+  placeholder="أدخل تقييمك من 1 إلى 10"required>
   
   <button type="button" onclick="sendData()">إرسال</button>
 

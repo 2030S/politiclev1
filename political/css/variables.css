@@ -1,0 +1,27 @@
+:root{
+
+  /* Colors */
+  --primary-color: #2563eb;
+  --secondary-color: #1d4ed8;
+
+  --background-color: #f4f6f9;
+  --card-color: #ffffff;
+
+  --text-color: #222222;
+  --text-muted: #666666;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-card:
+    0 2px 10px rgba(0,0,0,.08);
+
+  /* Spacing */
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 30px;
+
+}

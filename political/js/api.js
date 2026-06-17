@@ -27,21 +27,42 @@ async function loadData() {
 
 async function sendData() {
 
-  const score =
-  Number(document.getElementById("score").value);
+  const name =
+    document.getElementById("name").value.trim();
 
-if(score < 1 || score > 10){
-  alert("التقييم يجب أن يكون بين 1 و 10");
-  return;
-}
+  const email =
+    document.getElementById("email").value.trim();
+
+  const score =
+    document.getElementById("score").value.trim();
+
+  if(!name){
+    alert("المرجو إدخال الاسم");
+    return;
+  }
+
+  if(!email){
+    alert("المرجو إدخال البريد الإلكتروني");
+    return;
+  }
+
+  if(!score){
+    alert("المرجو إدخال التقييم");
+    return;
+  }
+
+  if(Number(score) < 1 || Number(score) > 10){
+    alert("التقييم يجب أن يكون بين 1 و 10");
+    return;
+  }
 
   const payload = {
     Fingerprint: generateFingerprint(),
-    Name: document.getElementById("name").value,
-    Email: document.getElementById("email").value,
+    Name: name,
+    Email: email,
     Region: document.getElementById("region").value,
     Party: document.getElementById("party").value,
-    Score: document.getElementById("score").value
+    Score: score
   };
 
   const response = await fetch(API_URL,{
@@ -49,7 +70,14 @@ if(score < 1 || score > 10){
     body: JSON.stringify(payload)
   });
 
-const result = await response.json();
+  const result = await response.json();
+
+if(!result.success){
+
+  alert(result.message);
+
+  return;
+}
 
 if(result.success){
 
@@ -62,7 +90,4 @@ if(result.success){
 
   await loadData();
 
-}
-
-}
-
+  }}
