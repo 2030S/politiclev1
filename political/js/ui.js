@@ -29,3 +29,30 @@ function showData(data){
     "participants-list"
   ).innerHTML = html;
 }
+
+function showAlert(message){
+
+  const alertBox =
+    document.createElement("div");
+
+  alertBox.className = "custom-alert";
+
+  alertBox.textContent = message;
+
+  document.body.appendChild(alertBox);
+
+  setTimeout(() => {
+    alertBox.classList.add("show");
+  }, 50);
+
+  setTimeout(() => {
+
+    alertBox.classList.remove("show");
+
+    setTimeout(() => {
+      alertBox.remove();
+    }, 300);
+
+  }, 3000);
+
+}

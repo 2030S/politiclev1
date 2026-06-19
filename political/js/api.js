@@ -37,22 +37,22 @@ async function sendData() {
     document.getElementById("score").value.trim();
 
   if(!name){
-    alert("المرجو إدخال الاسم");
+    showAlert("المرجو إدخال الاسم");    
     return;
   }
 
   if(!email){
-    alert("المرجو إدخال البريد الإلكتروني");
+    showAlert("المرجو إدخال البريد الإلكتروني");
     return;
   }
 
   if(!score){
-    alert("المرجو إدخال التقييم");
+    showAlert("المرجو إدخال التقييم");
     return;
   }
 
   if(Number(score) < 1 || Number(score) > 10){
-    alert("التقييم يجب أن يكون بين 1 و 10");
+    showAlert("التقييم يجب أن يكون بين 1 و 10");
     return;
   }
 

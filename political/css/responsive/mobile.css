@@ -204,3 +204,31 @@
   font-weight:bold;
   color:#3470f2;
 }
+
+.custom-alert{
+
+  position:fixed;
+  top:20px;
+  right:20px;
+
+  background:#222;
+  color:white;
+
+  padding:15px 20px;
+
+  border-radius:12px;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+
+  z-index:9999;
+
+  opacity:0;
+  transform:translateY(-20px);
+
+  transition:.3s;
+}
+
+.custom-alert.show{
+  opacity:1;
+  transform:translateY(0);
+}

@@ -27,91 +27,115 @@
 
 <section id="container">
   <div>
-      <h1 id="h1container">تقييمات الأحزاب</h1>
-      <p id="p1container">هذه الصفحة تتابع تقييمات الأحزاب السياسية المغربية.</p>
+    <h1 id="h1container">تقييمات الأحزاب</h1>
+    <p id="p1container">
+      هذه الصفحة تتابع تقييمات الأحزاب السياسية المغربية.
+    </p>
   </div>
 </section>
 
-<main>
+<main class="desktop-layout">
 
-<section id="input-section">
+  <section id="input-section">
 
-  <h2 class="h2input">أضف تقييمك</h2>
+    <h2 class="h2input">أضف تقييمك</h2>
 
-  <input type="text" id="name" placeholder="الاسم الكامل" required>
-  <input type="email" id="email" placeholder="لإميل الخاص بك" required>
+    <input
+      type="text"
+      id="name"
+      placeholder="الاسم الكامل"
+      required
+    >
 
-  <select id="party">
-    <option value="حزب الاستقلال"> حزب لإستفلال</option>
-    <option value="التجمع الوطني للأحرار">التجمع الوطني للأحرار</option>
-    <option value="حزب الأصالة والمعاصرة">حزب الأصالة والمعاصرة</option>
-    <option value="حزب العدالة والتنمية">حزب العدالة والتنمية</option>
-    <option value="لاتحاد الاشتراكي للقوات الشعبية">لاتحاد الاشتراكي للقوات الشعبية</option>
-    <option value="الحركة الشعبية">الحركة الشعبية</option>
-    <option value="حزب التقدم والاشتراكية">حزب التقدم والاشتراكية</option>
-    <option value="الاتحاد الدستوري">الاتحاد الدستوري</option>
-    <option value="جبهة القوى الديمقراطية">جبهة القوى الديمقراطية</option>
-    <option value="الحركة الديمقراطية الاجتماعية">الحركة الديمقراطية الاجتماعية</option>
-  </select>
+    <input
+      type="email"
+      id="email"
+      placeholder="لإميل الخاص بك"
+      required
+    >
 
-  <select id="region">
-    <option >جهة طنجة تطوان الحسيمة</option>
-    <option >جهة الشرق</option>
-    <option >جهة فاس مكناس</option>
-    <option >جهة الرباط سلا القنيطرة</option>
-    <option >جهة بني ملال خنيفرة</option>
-    <option >جهة الدار البيضاء سطاتر</option>
-    <option >جهة مراكش آسفي</option>
-    <option >جهة درعة تافيلالت</option>
-    <option >جهة سوس ماسة</option>
-    <option >جهة كلميم واد نون</option>
-    <option >جهة العيون الساقية الحمراء</option>
-    <option >جهة الداخلة وادي الذهب</option>
-  </select>
+    <select id="party">
+      <option value="حزب الاستقلال">حزب الاستقلال</option>
+      <option value="التجمع الوطني للأحرار">التجمع الوطني للأحرار</option>
+      <option value="حزب الأصالة والمعاصرة">حزب الأصالة والمعاصرة</option>
+      <option value="حزب العدالة والتنمية">حزب العدالة والتنمية</option>
+      <option value="لاتحاد الاشتراكي للقوات الشعبية">الاتحاد الاشتراكي للقوات الشعبية</option>
+      <option value="الحركة الشعبية">الحركة الشعبية</option>
+      <option value="حزب التقدم والاشتراكية">حزب التقدم والاشتراكية</option>
+      <option value="الاتحاد الدستوري">الاتحاد الدستوري</option>
+      <option value="جبهة القوى الديمقراطية">جبهة القوى الديمقراطية</option>
+      <option value="الحركة الديمقراطية الاجتماعية">الحركة الديمقراطية الاجتماعية</option>
+    </select>
 
-<input
-  type="number"
-  id="score"
-  min="1"
-  max="10"
-  placeholder="أدخل تقييمك من 1 إلى 10"required>
-  
-  <button type="button" onclick="sendData()">إرسال</button>
+    <select id="region">
+      <option>جهة طنجة تطوان الحسيمة</option>
+      <option>جهة الشرق</option>
+      <option>جهة فاس مكناس</option>
+      <option>جهة الرباط سلا القنيطرة</option>
+      <option>جهة بني ملال خنيفرة</option>
+      <option>جهة الدار البيضاء سطات</option>
+      <option>جهة مراكش آسفي</option>
+      <option>جهة درعة تافيلالت</option>
+      <option>جهة سوس ماسة</option>
+      <option>جهة كلميم واد نون</option>
+      <option>جهة العيون الساقية الحمراء</option>
+      <option>جهة الداخلة وادي الذهب</option>
+    </select>
 
-</section>
+    <input
+      type="number"
+      id="score"
+      min="1"
+      max="10"
+      placeholder="أدخل تقييمك من 1 إلى 10"
+      required
+    >
 
+    <button
+      type="button"
+      onclick="sendData()"
+    >
+      إرسال
+    </button>
 
-<section id="chart-section">
-  <h2>Political Chart</h2>
-  <canvas id="partyChart"></canvas>
-</section>
+  </section>
+
+  <section id="ranking-section">
+
+    <h2 class="h2ranking">
+      ترتيب الأحزاب
+    </h2>
+
+    <p id="ranking-info">
+      عدد الأصوات يحدد ترتيب الأحزاب،
+      أما النسبة فتمثل متوسط تقييم المصوتين.
+    </p>
+
+    <div id="ranking-results"></div>
+
+  </section>
 
 </main>
 
-<section id="ranking-section">
-
-  <h2 class="h2ranking">ترتيب الأحزاب</h2>
-
-  <p id="ranking-info">
-    عدد الأصوات يحدد ترتيب الأحزاب، أما النسبة فتمثل متوسط تقييم المصوتين.
-  </p>
-
-  <div id="ranking-results"></div>
-
-</section>
-
 <section id="data-section">
-  <h2 class="hparty">آخر المشاركين في الاستطلاع</h2>
+
+  <h2 class="hparty">
+    آخر المشاركين في الاستطلاع
+  </h2>
+
   <div id="participants-list"></div>
+
 </section>
-
-
 
 <footer id="footer">
 
-  <h3>Political Ranking Dashboard V1</h3>
+  <h3>
+    Political Ranking Dashboard V1
+  </h3>
 
-  <p>Rida Teque 2026</p>
+  <p>
+    Rida Teque 2026
+  </p>
 
 </footer>
 
@@ -122,8 +146,6 @@
 <script src="js/participants.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/app.js"></script>
-
-
 
 </body>
 </html>
