@@ -74,7 +74,7 @@ async function sendData() {
 
 if(!result.success){
 
-  alert(result.message);
+  showAlert (result.message);
 
   return;
 }
